@@ -21,7 +21,7 @@
       register: discovered_sysctl_conf_files
 
     - name: MEDIUM | UBTU-22-253010 | PATCH | Ubuntu 22.04 LTS must be configured to use TCP syncookies. | remove current settings
-      when: "ubtu22cis_sysctl_network_conf not in item.path"
+      when: "ubtu22stig_sysctl_network_conf not in item.path"
       ansible.builtin.replace:
         path: "{{ item.path }}"
         regexp: net.ipv4.tcp_syncookies\s*=\s*[ 0, 2 ]
@@ -32,5 +32,5 @@
       ansible.posix.sysctl:
         name: net.ipv4.tcp_syncookies
         reload: true
-        sysctl_file: "{{ ubtu22cis_sysctl_network_conf }}"
+        sysctl_file: "{{ ubtu22stig_sysctl_network_conf }}"
         value: '1'
