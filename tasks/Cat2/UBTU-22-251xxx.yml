@@ -4,6 +4,7 @@
   when:
     - ubtu22stig_251010
     - ubtu22stig_disruption_high
+    - "'ufw' not in ansible_facts.packages"
   tags:
     - UBTU-22-251010
     - CAT2
@@ -52,7 +53,9 @@
     state: started
 
 - name: MEDIUM | UBTU-22-251025 | PATCH | Ubuntu 22.04 LTS must configure the Uncomplicated Firewall (ufw) to rate-limit impacted network interfaces.
-  when: ubtu22stig_251025
+  when:
+    - ubtu22stig_251025
+    - ubtu22stig_disruption_high
   tags:
     - UBTU-22-251025
     - CAT2
