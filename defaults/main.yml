@@ -191,6 +191,10 @@ ubtu22stig_251020: true
 ubtu22stig_251025: true
 ubtu22stig_251030: true
 ubtu22stig_253010: true
+ubtu22stig_254010: true
+ubtu22stig_254015: true
+ubtu22stig_254020: true
+ubtu22stig_254030: true
 ubtu22stig_255020: true
 ubtu22stig_255030: true
 ubtu22stig_255035: true
@@ -218,6 +222,7 @@ ubtu22stig_412035: true
 ubtu22stig_431010: true
 ubtu22stig_431015: true
 ubtu22stig_432010: true
+ubtu22stig_432011: true
 ## 6xx - Authentication, Authorization and Accounting
 ubtu22stig_611010: true
 ubtu22stig_611015: true
@@ -260,6 +265,7 @@ ubtu22stig_654025: true
 ubtu22stig_654030: true
 ubtu22stig_654035: true
 ubtu22stig_654040: true
+ubtu22stig_654041: true
 ubtu22stig_654045: true
 ubtu22stig_654050: true
 ubtu22stig_654055: true
@@ -296,6 +302,7 @@ ubtu22stig_654205: true
 ubtu22stig_654210: true
 ubtu22stig_654215: true
 ubtu22stig_654220: true
+ubtu22stig_654224: true
 ubtu22stig_654225: true
 ubtu22stig_654230: true
 ubtu22stig_654235: true
@@ -309,9 +316,9 @@ ubtu22stig_215025: true
 ubtu22stig_252010: true
 ubtu22stig_252015: true
 ubtu22stig_252020: true
+ubtu22stig_254025: true
 ubtu22stig_411045: true
 ubtu22stig_412010: true
-ubtu22stig_412015: true
 ubtu22stig_412020: true
 ubtu22stig_631015: true
 ubtu22stig_651035: true
@@ -394,6 +401,11 @@ ubtu22stig_sudo_group_required:
 ### 271xxx - Gnome Desktop
 ### Graphical/Gnome interface required
 ubtu22stig_gui: "{{ ubtu22_gnome_present.stat.exists | default(false) }}"
+
+# UBTU-22-271025
+# ubtu22stig_screen_lock_delay is the amount of time in seconds before screen locks
+# To be STIG compliant this value must be 900 seconds (15 minutes) or less
+ubtu22stig_screen_lock_delay: 600
 
 ################################
 ### 4xx - User Configuration ###

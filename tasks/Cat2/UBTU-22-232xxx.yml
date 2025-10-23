@@ -95,7 +95,7 @@
     - CAT2
     - CCI-001499
     - SRG-OS-000259-GPOS-00100
-    - SV-260487r991560_rule
+    - SV-260487r1107262_rule
     - V-260487
     - NIST800-53R4_CM-5
     - permissions
@@ -103,7 +103,7 @@
     warn_control_id: 'MEDIUM | UBTU-22-232020'
   block:
     - name: MEDIUM | UBTU-22-232020 | AUDIT | Ubuntu 22.04 LTS library files must have mode "755" or less permissive. | Discover
-      ansible.builtin.shell: find /lib /lib64 /usr/lib -perm /022 -type f -exec stat -c "%n" '{}' \;
+      ansible.builtin.shell: find /lib /lib64 /usr/lib64 -perm /022 -type f -exec stat -c "%n" '{}' \;
       changed_when: false
       failed_when: discovered_system_lib_files_perms.rc not in [ 0, 1 ]
       register: discovered_system_lib_files_perms
@@ -560,7 +560,7 @@
     - CAT2
     - CCI-001499
     - SRG-OS-000259-GPOS-00100
-    - SV-260499r991560_rulee
+    - SV-260499r1107264_rule
     - V-260499
     - NIST800-53R4_CM-5
     - permissions
@@ -568,7 +568,7 @@
     warn_control_id: 'MEDIUM | UBTU-22-232070'
   block:
     - name: MEDIUM | UBTU-22-232070 | AUDIT | Ubuntu 22.04 LTS library files must be owned by "root". | Discover
-      ansible.builtin.shell: find /lib /usr/lib /lib64 ! -user root -type f -exec stat -c "%n" '{}' \;
+      ansible.builtin.shell: find /lib /usr/lib /lib64 /usr/lib64 ! -user root -type f -exec stat -c "%n" '{}' \;
       changed_when: false
       failed_when: discovered_system_lib_files_owner.rc not in [ 0, 1 ]
       register: discovered_system_lib_files_owner
@@ -604,7 +604,7 @@
     - CAT2
     - CCI-001499
     - SRG-OS-000259-GPOS-00100
-    - SV-260500r991560_rulee
+    - SV-260500r1107266_rule
     - V-260500
     - NIST800-53R4_CM-5
     - permissions
@@ -612,7 +612,7 @@
     warn_control_id: 'MEDIUM | UBTU-22-232075'
   block:
     - name: MEDIUM | UBTU-22-232075 | AUDIT | Ubuntu 22.04 LTS library files must be group-owned by "root". | Discover
-      ansible.builtin.shell: find /lib /usr/lib /lib64 ! -group root -type f -exec stat -c "%n" '{}' \;
+      ansible.builtin.shell: find /lib /usr/lib /lib64 /usr/lib64 ! -group root -type f -exec stat -c "%n" '{}' \;
       changed_when: false
       failed_when: discovered_system_lib_files_group.rc not in [ 0, 1 ]
       register: discovered_system_lib_files_group
@@ -822,7 +822,7 @@
     - CCI-001493
     - CCI-001494
     - SRG-OS-000256-GPOS-00097
-    - SV-260507r991557_rule
+    - SV-260507r1101725_rule
     - V-260507
     - NIST800-53R4_AU-9
     - auditd
