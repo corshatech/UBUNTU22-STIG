@@ -368,10 +368,6 @@ ubtu22stig_logon_banner_nice: |
     communications and work product are private and confidential. See User
     Agreement for details.
 
-# 27xxxx
-ubtu22stig_sudo_group_required:
-- vagrant
-
 ### 271xxx - Gnome Desktop
 ### Graphical/Gnome interface required
 ubtu22stig_gui: "{{ ubtu22_gnome_present.stat.exists | default(false) }}"
@@ -397,6 +393,12 @@ ubtu22stig_faillock_unlock_time: '0'
 ubtu22stig_faildelay: 4000000  # 4000000 is the minimum value = 4 seconds
 # maxlogins maximum number of logins per user
 ubtu22stig_maxlogins: 10
+
+# UBTU-22-432015
+# The value here needs to be set to the user(s) or group(s) that needs to be able to run sudo.
+# This will add the users/groups to the sudo group
+ubtu22stig_sudo_group_required:
+- vagrant
 
 ###########################################################
 ### 6xx - Authentication, Authorization, and Accounting ###
