@@ -231,30 +231,6 @@ uses:
 - This is an automated test that occurs on pull requests into devel
 - self-hosted runners using OpenTofu
 
-## Known Issues
-
-Almalinux BaseOS, EPEL and many cloud providers repositories, do not allow gpgcheck(rule_1.2.1.2) or repo_gpgcheck (rule_1.2.1.3) this will cause issues during the playbook unless or a workaround is found.
-
-
-## Local Testing 💻
-
-### example
-
-```bash
-molecule test -s default
-molecule converge -s wsl -- --check
-molecule verify -s localhost
-```
-
-local testing uses:
-
-- ansible-core
-- molecule 4.0.1
-- molecule-docker 2.0.0
-- molecule-podman 2.0.2
-- molecule-vagrant 1.0.0
-- molecule-azure 0.5.0
-
 
 ## Credits and Thanks 🙏
 
