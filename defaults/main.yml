@@ -22,6 +22,8 @@ ubtu22stig_disruption_high: false
 # Allow aide check to run - this can be very resource intensive - not good on shared storage multiple hosts
 ubtu22stig_allow_aide_check: false
 
+ubtu22stig_workaround_for_disa_benchmark: true
+
 ## Unrestricted boot
 # Setting this variable to false enables the system to
 # boot *without* querying for the bootloader password.
