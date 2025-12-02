@@ -103,7 +103,7 @@
     warn_control_id: 'MEDIUM | UBTU-22-232020'
   block:
     - name: MEDIUM | UBTU-22-232020 | AUDIT | Ubuntu 22.04 LTS library files must have mode "755" or less permissive. | Discover
-      ansible.builtin.shell: find /lib /lib64 /usr/lib64 -perm /022 -type f -exec stat -c "%n" '{}' \;
+      ansible.builtin.shell: find /lib /lib64 /usr/lib /usr/lib64 -perm /022 -type f -exec stat -c "%n" '{}' \;
       changed_when: false
       failed_when: discovered_system_lib_files_perms.rc not in [ 0, 1 ]
       register: discovered_system_lib_files_perms
@@ -568,7 +568,7 @@
     warn_control_id: 'MEDIUM | UBTU-22-232070'
   block:
     - name: MEDIUM | UBTU-22-232070 | AUDIT | Ubuntu 22.04 LTS library files must be owned by "root". | Discover
-      ansible.builtin.shell: find /lib /usr/lib /lib64 /usr/lib64 ! -user root -type f -exec stat -c "%n" '{}' \;
+      ansible.builtin.shell: find /lib /lib64 /usr/lib /usr/lib64 ! -user root -type f -exec stat -c "%n" '{}' \;
       changed_when: false
       failed_when: discovered_system_lib_files_owner.rc not in [ 0, 1 ]
       register: discovered_system_lib_files_owner
