@@ -16,7 +16,7 @@
     path: /etc/pam.d/common-auth
     regexp: ^auth required pam_faildelay.so delay=
     line: "auth required pam_faildelay.so delay={{ ubtu22stig_faildelay }}"
-    insertbefore: auth.*pam_unix.so nullok
+    insertbefore: auth.*pam_unix.so
 
 - name: LOW | UBTU-22-412020 | PATCH | Ubuntu 22.04 LTS must display the date and time of the last successful account logon upon logon.
   when: ubtu22stig_412020
