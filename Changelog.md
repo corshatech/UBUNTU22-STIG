@@ -1,5 +1,13 @@
 # Ubuntu22STIG
 
+## 2nd December 2025 - based on v2r6
+
+Rule updates
+- UBTU-22-211000 - New control
+- UBTU-22-212015
+- UBTU-22-232026
+- UBTU-22-651015
+
 ### 23 October 2025 - based on STIG v2r5
 Control updates from Version 2 Release 3 through Version 2 Release 5
 - New README layout
@@ -8,6 +16,7 @@ Control updates from Version 2 Release 3 through Version 2 Release 5
 Rules updates
 CAT1
 - UBTU-22-271030
+- UBTU-22-432015 - updated logic
 - UBTU-22-611060
   - Added loop
 CAT2
@@ -44,8 +53,10 @@ CAT3
 - UBTU-22-252010
 - UBTU-22-252015
 - UBTU-22-254025 - New control
+- UBTU-22-411045 rewritten
 - UBTU-22-412015 - Removed
 - UBTU-22-653020
+- UBTU-22-653035 conditional fix
 ## Based on STIG v2r2
 ### 1.0.0
 
