@@ -44,4 +44,4 @@
     regexp: '^([^#|{% if system_is_ec2 %}ec2-user{% endif %}].*)NOPASSWD(.*)'
     replace: '\1PASSWD\2'
     validate: '/usr/sbin/visudo -cf %s'
-  loop: "{{ ubtu22stg_prelim__sudoers_files.stdout_lines }}"
+  loop: "{{ prelim_sudoers_files.stdout_lines }}"
