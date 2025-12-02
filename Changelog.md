@@ -1,10 +1,51 @@
 # Ubuntu22STIG
 
-## Based on STIG v2r2
 
-### 23 October 2025
+
+### 23 October 2025 - based on STIG v2r5
 Control updates from Version 2 Release 3 through Version 2 Release 5
-
+Rules updates
+CAT1
+- UBTU-22-271030
+- UBTU-22-611060
+  - Added loop
+CAT2
+- UBTU-22-212015
+- UBTU-22-213015
+- UBTU-22-232020
+  - extended find locations
+- UBTU-22-232070
+  - extended find locations
+- UBTU-22-232075
+  - extended find locations
+- UBTU-22-232110
+- UBTU-22-253010
+- UBTU-22-254010 - New control
+- UBTU-22-254015 - New control
+- UBTU-22-254020 - New control
+- UBTU-22-254030 - New control
+- UBTU-22-271020
+- UBTU-22-271025
+- UBTU-22-432010
+- UBTU-22-432011 - New control
+- UBTU-22-611055
+- UBTU-22-612020
+- UBTU-22-612030
+- UBTU-22-651015
+- UBTU-22-651030
+- UBTU-22-653030
+- UBTU-22-653065
+- UBTU-22-653075
+  - Added loop control
+- UBTU-22-654041 - New control
+- UBTU-22-654224 - New control
+CAT3
+- UBTU-22-252010
+- UBTU-22-252015
+- UBTU-22-254025 - New control
+- UBTU-22-412015 - Removed
+- UBTU-22-653020
+## Based on STIG v2r2
 ### 1.0.0
 
 Updated lint configs
