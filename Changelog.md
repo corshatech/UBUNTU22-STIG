@@ -1,9 +1,10 @@
 # Ubuntu22STIG
 
-
-
 ### 23 October 2025 - based on STIG v2r5
 Control updates from Version 2 Release 3 through Version 2 Release 5
+- New README layout
+- New Workflows
+
 Rules updates
 CAT1
 - UBTU-22-271030
