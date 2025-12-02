@@ -75,7 +75,7 @@
     - V-260537
     - NIST800-53R4_AC-11
     - gnome
-  ansible.builtin.ini_file:
+  community.general.ini_file:
     path: /etc/dconf/db/local.d/00-screensaver
     section: org/gnome/desktop/screensaver
     option: lock-enabled
@@ -96,7 +96,7 @@
     - V-260538
     - NIST800-53R4_AC-11
     - gnome
-  ansible.builtin.ini_file:
+  community.general.ini_file:
     path: /etc/dconf/db/local.d/00-screensaver
     section: "{{ item.section }}"
     option: "{{ item.option }}"

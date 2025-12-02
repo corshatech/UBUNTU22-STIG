@@ -40,8 +40,8 @@
     - NIST800-53R4_IA-11
     - sudo
   ansible.builtin.replace:
-      path: "{{ item }}"
-      regexp: '^([^#|{% if system_is_ec2 %}ec2-user{% endif %}].*)NOPASSWD(.*)'
-      replace: '\1PASSWD\2'
-      validate: '/usr/sbin/visudo -cf %s'
+    path: "{{ item }}"
+    regexp: '^([^#|{% if system_is_ec2 %}ec2-user{% endif %}].*)NOPASSWD(.*)'
+    replace: '\1PASSWD\2'
+    validate: '/usr/sbin/visudo -cf %s'
   loop: "{{ ubtu22stg_prelim__sudoers_files.stdout_lines }}"

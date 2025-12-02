@@ -13,7 +13,7 @@
     - V-260539
     - NIST800-53R4_CM-6
     - gnome
-  ansible.builtin.ini_file:
+  community.general.ini_file:
     path: /etc/dconf/db/local.d/00-screensaver
     section: org/gnome/settings-daemon/plugins/media-keys
     option: logout
