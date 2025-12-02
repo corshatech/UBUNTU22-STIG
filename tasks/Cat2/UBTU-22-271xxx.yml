@@ -46,22 +46,6 @@
     - Update_dconf
     - Restart_gdm3
 
-# - name: MEDIUM | UBTU-22-271020 | PATCH | Ubuntu 22.04 LTS must retain a user's session lock until that user reestablishes access using established identification and authentication procedures.
-#   when:
-#     - ubtu22stig_271020
-#     - ubtu22stig_gui
-#   tags:
-#     - UBTU-22-271020
-#     - CAT2
-#     - CCI-000056
-#     - SRG-OS-000028-GPOS-00009
-#     - SV-260537r958400_rule
-#     - V-260537
-#     - NIST800-53R4_AC-11
-#     - gnome
-#   ansible.builtin.command: gsettings set org.gnome.desktop.screensaver lock-enabled true
-#   changed_when: true
-
 - name: MEDIUM | UBTU-22-271020 | PATCH | Ubuntu 22.04 LTS must retain a user's session lock until that user reestablishes access using established identification and authentication procedures.
   when:
     - ubtu22stig_271020
