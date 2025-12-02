@@ -3,11 +3,9 @@
 ## metadata for Audit benchmark
 benchmark_version: {{ benchmark_version }}
 
-## Benchmark name used by audting control role
+## Benchmark name used by auditing control role
 # The audit variable found at the base
 benchmark: UBUNTU22-STIG
-
-
 
 # turn the categories on/off
 ubtu22stig_cat1: {{ ubtu22stig_cat1 }}
@@ -21,6 +19,7 @@ ubtu22stig_gui: {{ ubtu22stig_gui }}
 # Some tests may need to scan every filesystem or have an impact on a system
 # these may need be scheduled to minimise impact
 run_heavy_tests: {{ audit_run_heavy_tests }}
+
 # Time out of commands
 timeout_ms: {{ audit_cmd_timeout }}
 
