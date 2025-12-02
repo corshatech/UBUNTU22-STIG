@@ -14,16 +14,6 @@ ubtu22stig_cat1: true
 ubtu22stig_cat2: true
 ubtu22stig_cat3: true
 
-# We've defined complexity-high to mean that we cannot automatically remediate
-# the rule in question.  In the future this might mean that the remediation
-# may fail in some cases.
-ubtu22stig_complexity_high: false
-
-# Show "changed" for complex items not remediated per complexity-high setting
-# to make them stand out.  "changed" items on a second run of the role would
-# indicate items requiring manual review.
-ubtu22stig_audit_complex: true
-
 # We've defined disruption-high to indicate items that are likely to cause
 # disruption in a normal workflow.  These items can be remediated automatically
 # but are disabled by default to avoid disruption.
@@ -38,12 +28,6 @@ ubtu22stig_workaround_for_disa_benchmark: true
 # Setting this variable to false enables the system to
 # boot *without* querying for the bootloader password.
 ubtu22stig_ask_passwd_to_boot: true
-
-# tweak role to run in a chroot, such as in kickstart %post script
-ubtu22stig_system_is_chroot: "{{ ansible_is_chroot | default(False) }}"
-
-# Set if system uses ipv6
-ubtu22stig_system_uses_ipv6: false
 
 # Place to find the container yml file for your environment - /vars/...
 container_vars_file: is_container.yml
@@ -336,7 +320,6 @@ ubtu22stig_653040: true
 ## 212xxx Bootloader/Grub settings
 ubtu22stig_bootloader_password_hash: 'grub.pbkdf2.sha512.changethispassword'  # pragma: allowlist secret
 ubtu22stig_set_bootloader_password: false
-ubtu22stig_grub2_path: /etc/grub2.cfg
 
 ## 213xxx - Kernel
 ubtu22stig_sysctl_file_default: /etc/sysctl.d/stig_kernel.conf
@@ -436,8 +419,6 @@ ubtu22stig_maxlogins: 10
 # 611xxx
 # ubtu22stig_passwd_hash_algo is the hashing algorithm used - STIG required SHA512 - default is newer yescrypt
 ubtu22stig_passwd_hash_algo: sha512  # pragma: allowlist secret
-# Set pam as well as login defs if PAM is required
-ubtu22stig_passwd_setpam_hash_algo: false
 
 # 612xxx
 # Section 612xxx is for smartcards configurations these require further configurations before applying STiG settings
@@ -445,8 +426,6 @@ ubtu22stig_configure_multifactor_auth: false
 
 # 651xxx
 ### Aide
-ubtu22stig_use_aide: true
-ubtu22stig_aide_cron_file: /etc/cron.daily/aide  # NOTE the path may change if not running daily
 ubtu22stig_aide_cron:
   day: '*'
   hour: '4'
