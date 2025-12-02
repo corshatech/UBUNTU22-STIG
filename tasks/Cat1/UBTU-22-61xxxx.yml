@@ -13,8 +13,8 @@
     - password
   ansible.builtin.replace:
     path: "{{ item }}"
-    regexp: (.*) nullok(.*)
-    replace: \1\2
+    regexp: nullok
+    replace: ''
   loop:
     - /etc/pam.d/common-auth
     - /etc/pam.d/common-password
