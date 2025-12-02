@@ -115,6 +115,7 @@ audit_output_destination: /opt/audit_summaries/
 
 #### CAT 1
 
+ubtu22stig_211000: true
 ubtu22stig_211015: true
 ubtu22stig_212010: true
 ubtu22stig_215030: true
