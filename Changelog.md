@@ -8,6 +8,11 @@ Rule updates
 - UBTU-22-232026
 - UBTU-22-651015
 
+several other improvements
+- ssh kex,macs and cipher logic
+- 232026, 232080, 232090, 232140 consistency
+- 214010 - logic update
+
 ### 23 October 2025 - based on STIG v2r5
 Control updates from Version 2 Release 3 through Version 2 Release 5
 - New README layout
