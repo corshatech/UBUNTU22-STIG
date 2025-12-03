@@ -52,6 +52,7 @@
         path: /etc/grub.d/40_custom
         regex: "{{ item.regex }}"
         line: "{{ item.line }}"
+      no_log: true
       loop:
         - { regex: '^set superusers=', line: 'set superusers="root"' }
         - { regex: '^password_pbkdf2 root', line: 'password_pbkdf2 root {{ ubtu22stig_bootloader_password_hash }}' }
