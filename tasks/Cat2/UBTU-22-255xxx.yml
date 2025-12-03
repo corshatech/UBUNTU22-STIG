@@ -109,7 +109,7 @@
   ansible.builtin.lineinfile:
     path: /etc/ssh/sshd_config
     regexp: ^Ciphers
-    line: "Ciphers {{ ubtu22stig_sshd_config_ciphers | join(',') }}"
+    line: "Ciphers {{ ubtu22stig_sshd_config_ciphers }}"
     validate: sshd -t -f %s
   notify: Change_requires_reboot
 
