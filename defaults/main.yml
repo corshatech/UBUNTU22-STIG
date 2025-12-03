@@ -342,9 +342,9 @@ ubtu22stig_ssh_required: true
 ubtu22stig_sshd_config_file: /etc/ssh/sshd_config
 ubtu22stig_sshd_config_clientalivecountmax: 1
 ubtu22stig_sshd_config_clientaliveinterval: 600  # max 600
-ubtu22stig_sshd_config_ciphers: "{{ ubtu22stig_dod_ciphers }}"
-ubtu22stig_sshd_config_macs: "{{ ubtu22stig_dod_macs }}"
-ubtu22stig_sshd_config_kex: "{{ ubtu22stig_dod_kex }}"
+ubtu22stig_sshd_config_ciphers: "{{ ubtu22stig_dod_ciphers | join(',') }}"
+ubtu22stig_sshd_config_macs: "{{ ubtu22stig_dod_macs | join(',') }}"
+ubtu22stig_sshd_config_kex: "{{ ubtu22stig_dod_kex | join(',') }}"
 
 ## Banner
 ubtu22stig_logon_banner: "{{ ubtu22stig_workaround_for_disa_benchmark | ternary(
