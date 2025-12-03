@@ -165,7 +165,7 @@
     warn_control_id: 'MEDIUM | UBTU-22-232026'
   block:
     - name: MEDIUM | UBTU-22-232026 | AUDIT | Ubuntu 22.04 LTS must generate error messages that provide information necessary for corrective actions without revealing information that could be exploited by adversaries. | find files
-      ansible.builtin.shell: find /var/log -perm /137 ! -name '*[bw]tmp' ! -name '*lastlog' {% if ubtu22stig_232026 %}! -name '*syslog' {% endif %}-type f -exec stat -c "%n" {} \;
+      ansible.builtin.shell: find /var/log -perm /137 ! -name '*[bw]tmp' ! -name '*lastlog' ! -name '*syslog' -type f -exec stat -c "%n" {} \;
       changed_when: false
       failed_when: discovered_var_log_logfiles.rc not in [ 0, 1 ]
       register: discovered_var_log_logfiles
@@ -176,7 +176,7 @@
         - ubtu22stig_disruption_high
       ansible.builtin.file:
         path: "{{ item }}"
-        mode: 'u-w,g-wx,o-rwx'
+        mode: 'u-wx,g-wx,o-rwx'
       loop: "{{ discovered_var_log_logfiles.stdout_lines }}"
 
     - name: MEDIUM | UBTU-22-232026 | WARN | Ubuntu 22.04 LTS must generate error messages that provide information necessary for corrective actions without revealing information that could be exploited by adversaries. | Warning
@@ -226,7 +226,7 @@
         - {regexp: '^Z \/run\/log\/journal\/%m (~\d{4,}) (\b.*\b) (\b.*\b) - -', line: 'Z /run/log/journal/%m ~2750 \2 \3 - -' }
         - {regexp: '^z \/var\/log\/journal (\d{4,}) (\b.*\b) (\b.*\b) - -', line: 'z /var/log/journal 2750 \2 \3 - -' }
         - {regexp: '^z \/var\/log\/journal\/%m (\d{4,}) (\b.*\b) (\b.*\b) - -', line: 'z /var/log/journal/%m 2750 \2 \3 - -' }
-        - {regexp: '^z \/var\/log\/journal\/%m/system.journal (\d{4,}) (\b.*\b) (\b.*\b) - -', line: 'z /var/log/journal/%m/system.journal 0750 \2 \3 - -' }
+        - {regexp: '^z \/var\/log\/journal\/%m/system.journal (\d{4,}) (\b.*\b) (\b.*\b) - -', line: 'z /var/log/journal/%m/system.journal 0640 \2 \3 - -' }
       notify: Change_requires_reboot
 
     - name: MEDIUM | UBTU-22-232027 | WARN | Ubuntu 22.04 LTS must generate system journal entries without revealing information that could be exploited by adversaries. | Warning
@@ -670,8 +670,8 @@
         regexp: "{{ item.regexp }}"
         line: "{{ item.line }}"
       loop:
-        - {regexp: '^z \/run\/log\/journal (\d{4,}) (\b.*\b) (\b.*\b) - -', line: 'z /run/log/journal \1 root \3 - -' }
-        - {regexp: '^z \/var\/log\/journal (\d{4,}) (\b.*\b) (\b.*\b) - -', line: 'z /var/log/journal \1 root \3 - -' }
+        - {regexp: '^z \/run\/log\/journal (\d{4,}) (\b.*\b) (\b.*\b) - -', line: 'z /run/log/journal 2640 root \3 - -' }
+        - {regexp: '^z \/var\/log\/journal (\d{4,}) (\b.*\b) (\b.*\b) - -', line: 'z /var/log/journal 2640 root \3 - -' }
       notify: Change_requires_reboot
 
 - name: MEDIUM | UBTU-22-232085 | PATCH | Ubuntu 22.04 LTS must configure the directories used by the system journal to be group-owned by "systemd-journal".
@@ -736,9 +736,9 @@
         regexp: "{{ item.regexp }}"
         line: "{{ item.line }}"
       loop:
-        - {regexp: '^Z \/run\/log\/journal\/%m (~\d{4,}) (\b.*\b) (\b.*\b) - -', line: 'Z /run/log/journal/%m \1 root \3 - -' }
-        - {regexp: '^z \/var\/log\/journal\/%m (\d{4,}) (\b.*\b) (\b.*\b) - -', line: 'z /var/log/journal/%m \1 root \3 - -' }
-        - {regexp: '^z \/var\/log\/journal\/%m\/system.journal (\d{4,}) (\b.*\b) (\b.*\b) - -', line: 'z /var/log/journal/%m/system.journal \1 root \3 - -' }
+        - {regexp: '^Z \/run\/log\/journal\/%m (~\d{4,}) (\b.*\b) (\b.*\b) - -', line: 'Z /run/log/journal/%m ~2640 root \3 - -' }
+        - {regexp: '^z \/var\/log\/journal\/%m (\d{4,}) (\b.*\b) (\b.*\b) - -', line: 'z /var/log/journal/%m 2640 root \3 - -' }
+        - {regexp: '^z \/var\/log\/journal\/%m\/system.journal (\d{4,}) (\b.*\b) (\b.*\b) - -', line: 'z /var/log/journal/%m/system.journal 0640 root \3 - -' }
       notify: Change_requires_reboot
 
 - name: MEDIUM | UBTU-22-232095 | PATCH | Ubuntu 22.04 LTS must configure the files used by the system journal to be group-owned by "systemd-journal"
@@ -934,7 +934,7 @@
   ansible.builtin.file:
     path: /usr/bin/journalctl
     state: file
-    mode: 'go-w'
+    mode: 'g-wx,o-rwx'
 
 - name: MEDIUM | UBTU-22-232145 | PATCH | Ubuntu 22.04 LTS must set a sticky bit on all public directories to prevent unauthorized and unintended information transferred via shared system resources.
   when:
