@@ -222,10 +222,10 @@
         regexp: "{{ item.regexp }}"
         line: "{{ item.line }}"
       loop:
-        - {regexp: '^z \/run\/log\/journal (\d{4,}) (\b.*\b) (\b.*\b) - -', line: 'z /run/log/journal 2750 \2 \3 - -' }
-        - {regexp: '^Z \/run\/log\/journal\/%m (~\d{4,}) (\b.*\b) (\b.*\b) - -', line: 'Z /run/log/journal/%m ~2750 \2 \3 - -' }
-        - {regexp: '^z \/var\/log\/journal (\d{4,}) (\b.*\b) (\b.*\b) - -', line: 'z /var/log/journal 2750 \2 \3 - -' }
-        - {regexp: '^z \/var\/log\/journal\/%m (\d{4,}) (\b.*\b) (\b.*\b) - -', line: 'z /var/log/journal/%m 2750 \2 \3 - -' }
+        - {regexp: '^z \/run\/log\/journal (\d{4,}) (\b.*\b) (\b.*\b) - -', line: 'z /run/log/journal 2640 \2 \3 - -' }
+        - {regexp: '^Z \/run\/log\/journal\/%m (~\d{4,}) (\b.*\b) (\b.*\b) - -', line: 'Z /run/log/journal/%m ~2640 \2 \3 - -' }
+        - {regexp: '^z \/var\/log\/journal (\d{4,}) (\b.*\b) (\b.*\b) - -', line: 'z /var/log/journal 2640 \2 \3 - -' }
+        - {regexp: '^z \/var\/log\/journal\/%m (\d{4,}) (\b.*\b) (\b.*\b) - -', line: 'z /var/log/journal/%m 2640 \2 \3 - -' }
         - {regexp: '^z \/var\/log\/journal\/%m/system.journal (\d{4,}) (\b.*\b) (\b.*\b) - -', line: 'z /var/log/journal/%m/system.journal 0640 \2 \3 - -' }
       notify: Change_requires_reboot
 
@@ -472,7 +472,7 @@
     - CAT2
     - CCI-001499
     - SRG-OS-000259-GPOS-00100
-    - SV-260497r991560_rulee
+    - SV-260497r991560_rule
     - V-260497
     - NIST800-53R4_CM-5
     - permissions
@@ -670,8 +670,8 @@
         regexp: "{{ item.regexp }}"
         line: "{{ item.line }}"
       loop:
-        - {regexp: '^z \/run\/log\/journal (\d{4,}) (\b.*\b) (\b.*\b) - -', line: 'z /run/log/journal 2640 root \3 - -' }
-        - {regexp: '^z \/var\/log\/journal (\d{4,}) (\b.*\b) (\b.*\b) - -', line: 'z /var/log/journal 2640 root \3 - -' }
+        - {regexp: '^z \/run\/log\/journal (\d{4,}) (\b.*\b) (\b.*\b) - -', line: 'z /run/log/journal \1 root \3 - -' }
+        - {regexp: '^z \/var\/log\/journal (\d{4,}) (\b.*\b) (\b.*\b) - -', line: 'z /var/log/journal \1 root \3 - -' }
       notify: Change_requires_reboot
 
 - name: MEDIUM | UBTU-22-232085 | PATCH | Ubuntu 22.04 LTS must configure the directories used by the system journal to be group-owned by "systemd-journal".
