@@ -10,8 +10,9 @@ Rule updates
 
 several other improvements
 - ssh kex,macs and cipher logic
-- 232026, 232080, 232090, 232140 consistency
+- 232026, 232080, 232090, 232140 fixed stig consistency errors
 - 214010 - logic update
+- 411045 - rewritten due to missing steps in STIG documentation for common-account
 
 ### 23 October 2025 - based on STIG v2r5
 Control updates from Version 2 Release 3 through Version 2 Release 5
@@ -19,11 +20,13 @@ Control updates from Version 2 Release 3 through Version 2 Release 5
 - New Workflows
 
 Rules updates
+
 CAT1
 - UBTU-22-271030
 - UBTU-22-432015 - updated logic
 - UBTU-22-611060
   - Added loop
+
 CAT2
 - UBTU-22-212015
 - UBTU-22-213015
@@ -54,6 +57,7 @@ CAT2
   - Added loop control
 - UBTU-22-654041 - New control
 - UBTU-22-654224 - New control
+
 CAT3
 - UBTU-22-252010
 - UBTU-22-252015
