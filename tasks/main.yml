@@ -67,7 +67,7 @@
     - name: "PRELIM | AUDIT | Discover if system is subscribed for PRO plan (needed for FIPS) | Check status if pkg installed"
       when: prelim_ubuntu_advantage_bin.stat.exists
       ansible.builtin.shell: pro status --format yaml | grep attached
-      failed_when: prelim_ubuntu_advantage_bin.stat.rc not in [ 0, 1 ]
+      failed_when: prelim_pro_subscription.rc not in [ 0, 1 ]
       changed_when: false
       register: prelim_pro_subscription
 
