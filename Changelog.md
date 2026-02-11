@@ -1,5 +1,13 @@
 # Ubuntu22STIG
 
+## 11th Feb 2026 - based on v2r6
+
+- pre-commit-update
+- workflow updates
+- pre status update thanks to @kurtcorsha
+- sudo group variable moved to correct section in defaults/main.ym
+
+
 ## 2nd December 2025 - based on v2r6
 
 Rule updates
